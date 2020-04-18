@@ -10,9 +10,9 @@ on:
     branches: [ dev ]
 
 env:
-  ACR_REPOSITORY: registrypetclinic.azurecr.io
-  AKS_CLUSTER: kub-petclinic-cluster
-  AKS_RESOURCEGROUP: myRGSgroup
+  ACR_REPOSITORY: petclinicrtricartacr.azurecr.io
+  AKS_CLUSTER: petclinicrtricartaks
+  AKS_RESOURCEGROUP: petclinic-rtricart
   NAMESPACE: petclinic-app
 
 jobs:
@@ -47,8 +47,8 @@ jobs:
         password: ${{ secrets.ACR_PASSWORD }}
     # Build + Push docker image to ACR
     - run: |
-        docker build . -t ${{ env.ACR_REPOSITORY }}/petclinic2:latest
-        docker push ${{ env.ACR_REPOSITORY }}/petclinic2:latest
+        docker build . -t ${{ env.ACR_REPOSITORY }}/petclinic:latest
+        docker push ${{ env.ACR_REPOSITORY }}/petclinic:latest
     # Select AKS cluster
     - uses: azure/aks-set-context@v1
       with:
@@ -75,7 +75,7 @@ jobs:
           manifests/deployment.yaml
           manifests/service.yaml
         images: |
-          ${{ env.ACR_REPOSITORY }}/petclinic2:latest
+          ${{ env.ACR_REPOSITORY }}/petclinic:latest
         imagepullsecrets: |
           ${{ env.ACR_REPOSITORY }}-secret
           
