@@ -7,7 +7,7 @@
     <version>5.2.4</version>
 
     <name>Spring Framework Petclinic</name>
-    <packaging>war</packaging>
+    <packaging>war</packaging>5.
     <description>A Spring Framework application based on JSP, Spring MVC, Spring Data JPA, Hibernate and JDBC</description>
     <url>https://github.com/spring-petclinic/</url>
 
@@ -33,7 +33,7 @@
         <wro4j.version>1.8.0</wro4j.version> <!-- wro4j 1.0.0 requires Java 9 -->
 
         <!-- Java EE / Java SE dependencies -->
-        <tomcat.version>9.0.31</tomcat.version>
+        <tomcat.version>8.5.51</tomcat.version>
         <jaxb-api.version>2.3.1</jaxb-api.version>
         <jaxb-core.version>2.3.0.1</jaxb-core.version>
         <jaxb-impl.version>2.3.2</jaxb-impl.version>
